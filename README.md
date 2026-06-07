@@ -1,705 +1,673 @@
-# MÔN: PHÁT TRIỂN ỨNG DỤNG TRÊN THIẾT BỊ DI ĐỘNG - TEE0419
-
-# BÀI TẬP LỚN:
-
-## 1. Viết phần mềm trên công cụ Mit App inventor
-   (tập trung vào quy trình tạo ra phần mềm)
-   app có 3 screen:
-   + about về bản thân+nút gọi sang 2 screen còn lại
-   + giải 1 bài toán đơn giản
-   + sử dụng webview: hiển thị 1 trang web có sẵn, hỗ trợ giao diện điện thoại
-   mô tả: thanh công cụ có gì? kéo thả + thay đổi thuộc tính: làm ntn, để làm gì?
-          block: mô tả bản chất việc kéo thả block ntn?
-                 ưu điểm gì so với viết code? nhược điểm?
-                 copy paste block ? (backpack)
-     
-## 2. Viết app sử dụng Android Studio
-   + Android manifest.xml  => mô tả gì? app cần quyền để do-st: khai báo ntn? để làm gì?
-   + vòng đời của 1 ứng dụng android.
-     code tự sinh sau khi tạo 1 project: có sẵn hàm onCreate: tại sao???
-   + Code: java language. 
-     app cần check xem có quyền để do-st? : code ntn? ý nghĩa?
-     giao diện: (res/layout) mô tả bằng file XML + UI Design review
-        + thuộc tính text, hoặc các thuộc tính khác: giá trị hardcode => lưu vào nới khác, tham chiếu tới nó:
-          cú pháp của việc tham chiếu là gì?
-          ưu điểm của việc tham chiếu này?
-          OS hỗ trợ auto việc lấy giá trị tham chiếu theo LOCATION, LANGUAGE, THEME
-          việc hỗ trợ auto này giúp app làm được điều gì?	
-        + đối tượng chứa: gộp các đối tượng con lại: cùng 1 quy luật sắp xếp để hiển thị 
-          các đối tượng con nằm kề nhau theo chiều dọc | hoặc ngang, gravity
-     code tương tác với layout: vd hiển thị text
-          mong muốn text hiển thị phù hợp với thiết lập LOCATION, LANGUAGE, THEME của người dùng
-          thì làm ntn? (tránh hardcode)
-     event (sự kiện) người dùng tác động vào app: CLICK vào button, click vào text,...
-          với 1 sự kiện nào đó, muốn chạy 1 đoạn code để do-st
-          thì LAYTOUT cần làm gì?
-              CODE viết như nào (2 cách)
----------------------------
-     trong app có các thư mục đặc biệt: Assets
-     khi sử dụng Window Explorer để copy các files + folder vào trong Assets
-     thì khi compiler: mọi file này đều đi theo app, nằm trong app
-     trong app có thể truy cập được đến các file này
-     cú pháp truy cập vào là gì?
-     lợi ích của việc app có sẵn các files (offline cũng có)?
-     ứng dụng: app hướng dẫn việc X
-
-==> tạo app1 sử dụng cơ chế Dữ liệu chuẩn bị trước trong Assets
-         format dữ liệu: tuỳ ý, nội dung tuỳ ý
-         công cụ để hiển thị dữ liệu: tuỳ ý
-         có cần phải tiền xử lý trước khi hiển thị ko: tuỳ ý.
-         SV TỰ ĐẶT RA VẤN ĐỀ => TỰ GIẢI QUYẾT VẤN ĐỀ
-         MÔ TẢ ĐƯỢC DỮ LIỆU CÓ ĐẶC THÙ GÌ
-                    DÙNG THUẬT TOÁN NÀO ĐỂ XỬ LÝ DỮ LIỆU (NẾU CẦN)
-                    DÙNG ĐỐI TƯỢNG NÀO ĐỂ HIỂN THỊ DỮ LIỆU.
-                    (ĐỘ SÁNG TẠO LÀ KO GIỚI HẠN)
-------------------------
-APP2 (android studio):  tạo app tương đương với Mit App inventor
-  app có 3 activity
-  + activity1: about: about+nút gọi sang 2 activity còn lại
-  + activity2: giải toán đơn giản (tuỳ ý). mỗi khi giải xong bài toán: gọi api tại https://k58kmt.tdh.io.vn/api
-    để gửi bài toán lên đó
-    {app_by:mã số sv, input: {a:1,b:2,c:3,name:"hello tắc kè"},output:{ketluan:"vô nghiệm", abc:"xyz", nghiem:3.14}}
-    nhận lại json: {ok:1, stt:1234}
-  + activity3: 
-    dùng web-view để truy cập từ 
-    1 trang web https://k58kmt.tdh.io.vn?masv=mã sv của bạn
-=======================
-    vết để lại: mô tả quá trình làm bài tập ra file .md => upload github
-    kèm hình ảnh minh hoạ quá trình làm.
-
-    print ra giấy đóng quyển, nộp bm.
-
-# PHẦN 1 — MIT APP INVENTOR
-
-# 1. Giới thiệu bài làm
-
-Trong phần này thực hiện xây dựng ứng dụng bằng MIT App Inventor gồm 3 Screen:
-
-- Screen About bản thân
-- Screen giải bài toán đơn giản
-- Screen sử dụng WebView để hiển thị website
-
-Ứng dụng được xây dựng bằng phương pháp kéo thả giao diện và lập trình block.
+# BÁO CÁO BÀI TẬP LỚN
+## MÔN: PHÁT TRIỂN ỨNG DỤNG TRÊN THIẾT BỊ DI ĐỘNG - TEE0419
 
 ---
 
-# 2. Truy cập MIT App Inventor
+# PHẦN 1: MIT APP INVENTOR
 
-## Bước 1: Mở website
+## 1.1. Giới thiệu MIT App Inventor
 
-Truy cập:
+MIT App Inventor là công cụ lập trình trực quan dạng kéo-thả, cho phép tạo ứng dụng Android mà không cần viết code truyền thống. Giao diện gồm 2 phần chính:
+- **Designer**: kéo thả các thành phần giao diện (UI)
+- **Blocks**: lập trình logic bằng cách ghép các khối lệnh
 
-```text
-https://appinventor.mit.edu/
+---
+
+## 1.2. Mô tả thanh công cụ & Kéo-thả thành phần
+
+### Palette (Thanh công cụ trái)
+
+Palette chứa các thành phần chia thành nhóm:
+
+| Nhóm | Thành phần tiêu biểu | Công dụng |
+|------|----------------------|-----------|
+| User Interface | Button, Label, TextBox, Image | Hiển thị & tương tác người dùng |
+| Layout | HorizontalArrangement, VerticalArrangement | Sắp xếp bố cục |
+| Media | Player, Sound, Camera | Xử lý đa phương tiện |
+| Connectivity | Web, ActivityStarter | Kết nối mạng, gọi Activity |
+| Sensors | LocationSensor, AccelerometerSensor | Cảm biến thiết bị |
+
+### Cách kéo-thả & thay đổi thuộc tính
+
+1. Chọn thành phần từ **Palette** → kéo vào màn hình **Viewer**
+2. Chọn thành phần trên Viewer → bảng **Properties** bên phải hiển thị các thuộc tính
+3. Thay đổi: `Text`, `FontSize`, `BackgroundColor`, `Width`, `Height`, v.v.
+
+![Giao diện MIT App Inventor - màn hình Designer](1.png)
+
+---
+
+## 1.3. Lập trình bằng Blocks
+
+### Bản chất kéo-thả Block
+
+- Mỗi **Block** là một đoạn lệnh được hình-hoá thành khối màu sắc
+- Ghép các khối lại với nhau = viết logic chương trình
+- Không cần gõ cú pháp → tránh lỗi chính tả, lỗi cú pháp
+
+### Ưu điểm so với viết code truyền thống
+
+| Ưu điểm | Giải thích |
+|---------|-----------|
+| Trực quan | Thấy ngay cấu trúc logic qua hình dạng khối |
+| Không cần nhớ cú pháp | Tránh lỗi typo, lỗi syntax |
+| Phù hợp người mới | Học lập trình tư duy mà không bị cản bởi ngôn ngữ |
+| Tích hợp sẵn | Kết nối UI ↔ Logic rõ ràng |
+
+### Nhược điểm
+
+- Khó quản lý khi dự án lớn (nhiều Block rối)
+- Không linh hoạt như viết code (khó tái sử dụng, khó refactor)
+- Hiệu năng thấp hơn code native
+
+### Backpack – Copy/Paste Block
+
+- **Backpack** là tính năng lưu tạm Block để dùng lại
+- Kéo Block vào **Backpack** (góc phải màn hình Blocks)
+- Chuyển sang Screen khác → kéo ra từ Backpack để dùng lại
+- Tương đương Ctrl+C / Ctrl+V nhưng hoạt động xuyên Screen
+
+![Màn hình Blocks - lập trình logic bằng kéo-thả](2.png)
+
+---
+
+## 1.4. App MIT App Inventor – 3 Screen
+
+### Screen 1: About (Giới thiệu bản thân)
+
+**Nội dung:**
+- Ảnh cá nhân (Image)
+- Họ tên, MSSV, lớp (Label)
+- 2 Button: "Sang Screen 2 (Giải toán)" và "Sang Screen 3 (WebView)"
+
+**Blocks điều hướng:**
+
+```
+Khi Button1.Click
+  → gọi open another screen: "Screen2"
+
+Khi Button2.Click
+  → gọi open another screen: "Screen3"
 ```
 
-Sau đó chọn:
+![Screen 1 - About bản thân - Designer](3.png)
 
-```text
-Create Apps!
+![Screen 1 - About bản thân - Blocks](4.png)
+
+---
+
+### Screen 2: Giải bài toán đơn giản
+
+**Bài toán:** Tính diện tích hình chữ nhật (nhập chiều dài, chiều rộng → tính S = dài × rộng)
+
+**Giao diện:**
+- 2 TextBox nhập số
+- 1 Button "Tính"
+- 1 Label hiển thị kết quả
+
+**Blocks:**
+
+```
+Khi btnTinh.Click
+  → set lblKetQua.Text = TextBox1.Text × TextBox2.Text
 ```
 
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/f6dabaa6-103b-41c3-b80b-d6c27bfa8383" />
+![Screen 2 - Giải bài toán - Designer](5.png)
+
+![Screen 2 - Giải bài toán - Blocks](6.png)
 
 ---
 
-# 2. Thiết kế Screen 1 — About
+### Screen 3: WebView hiển thị trang web
 
-## Mục tiêu
+**Trang web:** Chọn trang hỗ trợ giao diện di động, ví dụ: `https://vnexpress.net`
 
-Screen này dùng để:
-- Giới thiệu bản thân
-- Chứa nút chuyển sang Screen giải toán
-- Chứa nút chuyển sang Screen WebView
+**Giao diện:**
+- Thành phần `WebViewer` kéo vào, chiếm toàn màn hình
+- Thuộc tính `HomeUrl` = địa chỉ trang web cần hiển thị
+
+**Blocks:** Không cần block phức tạp – WebViewer tự tải trang khi mở Screen.
+
+![Screen 3 - WebView hiển thị trang web](7.png)
 
 ---
 
-## Bước 1: Kéo thả Label
+# PHẦN 2: ANDROID STUDIO
 
-Trong mục Palette chọn:
+## 2.1. Android Manifest (`AndroidManifest.xml`)
 
-```text
-User Interface → Label
+### Mô tả
+
+`AndroidManifest.xml` là file cấu hình trung tâm của ứng dụng Android, khai báo:
+- Tên package, tên app, icon
+- Danh sách Activity, Service, BroadcastReceiver
+- **Quyền (Permission)** mà app cần
+
+### Khai báo quyền
+
+```xml
+<!-- Khai báo trong AndroidManifest.xml -->
+<uses-permission android:name="android.permission.INTERNET" />
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+<uses-permission android:name="android.permission.CAMERA" />
 ```
 
-Kéo vào Viewer.
+**Mục đích:**
+- `INTERNET`: truy cập mạng (gọi API, WebView)
+- `ACCESS_FINE_LOCATION`: xác định vị trí GPS
+- `CAMERA`: chụp ảnh
 
-Đổi thuộc tính:
-- Text
-- FontSize
-- TextColor
-- Width
+Từ Android 6.0+, quyền nhạy cảm (Dangerous Permission) phải **xin thêm lúc chạy** (Runtime Permission).
 
-Ví dụ:
+![AndroidManifest.xml - khai báo quyền](8.png)
 
-```text
-Họ tên: Thân Nhân Thành
-MSSV: K225480106059
+---
+
+## 2.2. Vòng đời Activity (Activity Lifecycle)
+
+```
+onCreate() → onStart() → onResume() → [App đang chạy]
+                                             ↓
+                                        onPause()
+                                             ↓
+                              onStop() → onDestroy() [Kết thúc]
+                                 ↓
+                            onRestart() → onStart()
 ```
 
-📸 Chụp ảnh:
-- Kéo Label
-- Bảng Properties
-- Kết quả hiển thị
+| Callback | Khi nào gọi | Làm gì |
+|----------|-------------|--------|
+| `onCreate()` | Lần đầu tạo Activity | Khởi tạo UI, biến, dữ liệu |
+| `onStart()` | Activity sắp hiện | Chuẩn bị hiển thị |
+| `onResume()` | Activity ở foreground | Bắt đầu animate, play media |
+| `onPause()` | Mất focus | Lưu dữ liệu tạm, dừng animation |
+| `onStop()` | Không còn hiển thị | Giải phóng tài nguyên nặng |
+| `onDestroy()` | Activity bị hủy | Dọn dẹp toàn bộ |
+
+### Tại sao code tự sinh có sẵn `onCreate()`?
+
+Vì `onCreate()` là điểm vào bắt buộc của mọi Activity – Android luôn gọi nó đầu tiên. Đây là nơi duy nhất để gọi `setContentView()` để gắn layout XML vào Activity.
+
+![Vòng đời Activity Android](9.png)
 
 ---
 
-## Bước 2: Thêm Button chuyển Screen
+## 2.3. Kiểm tra và xin quyền Runtime (Java)
 
-Kéo 2 Button vào giao diện.
+```java
+// Kiểm tra quyền
+if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
+        != PackageManager.PERMISSION_GRANTED) {
+    // Chưa có quyền → xin quyền
+    ActivityCompat.requestPermissions(this,
+            new String[]{Manifest.permission.CAMERA},
+            REQUEST_CODE_CAMERA);
+} else {
+    // Đã có quyền → thực hiện hành động
+    openCamera();
+}
 
-Đổi Text:
-- Mở màn hình giải toán
-- Mở WebView
-
-📸 Chụp ảnh:
-- Button trong Viewer
-- Thuộc tính Text
-
----
-
-## Bước 3: Viết Block chuyển màn hình
-
-Chuyển sang tab:
-
-```text
-Blocks
+// Nhận kết quả xin quyền
+@Override
+public void onRequestPermissionsResult(int requestCode,
+        String[] permissions, int[] grantResults) {
+    if (requestCode == REQUEST_CODE_CAMERA) {
+        if (grantResults.length > 0
+                && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            openCamera(); // Người dùng đồng ý
+        } else {
+            Toast.makeText(this, "Quyền bị từ chối", Toast.LENGTH_SHORT).show();
+        }
+    }
+}
 ```
 
-Tạo block:
+**Ý nghĩa:** Bảo vệ quyền riêng tư người dùng – app chỉ được dùng tài nguyên khi người dùng đồng ý.
 
-```text
-when Button1.Click
-open another screen screenName "Screen2"
+![Xin quyền Runtime trên Android](10.png)
+
+---
+
+## 2.4. Giao diện XML Layout (`res/layout`)
+
+### Thuộc tính hardcode vs tham chiếu tài nguyên
+
+**❌ Hardcode (không nên):**
+```xml
+<TextView android:text="Xin chào" android:textSize="16sp"/>
 ```
 
-Tương tự cho Screen3.
-
-📸 Chụp ảnh:
-- Các block kéo thả
-- Block hoàn chỉnh
-
----
-
-# 5. Thiết kế Screen 2 — Giải toán đơn giản
-
-## Ý tưởng
-
-Ứng dụng nhập:
-- a
-- b
-
-Sau đó tính:
-- Tổng
-- Hiệu
-- Tích
-- Thương
-
----
-
-## Bước 1: Thêm TextBox
-
-Kéo:
-- 2 TextBox
-- 1 Button
-- 1 Label kết quả
-
-📸 Chụp ảnh:
-- Các thành phần giao diện
-
----
-
-## Bước 2: Đổi thuộc tính
-
-Ví dụ:
-
-TextBox1 Hint:
-
-```text
-Nhập số a
+**✅ Tham chiếu tài nguyên (nên dùng):**
+```xml
+<TextView android:text="@string/greeting" android:textSize="@dimen/text_size_normal"/>
 ```
 
-TextBox2 Hint:
+**Cú pháp tham chiếu:**
 
-```text
-Nhập số b
+| Loại | Cú pháp | File lưu |
+|------|---------|---------|
+| Chuỗi | `@string/tên` | `res/values/strings.xml` |
+| Màu sắc | `@color/tên` | `res/values/colors.xml` |
+| Kích thước | `@dimen/tên` | `res/values/dimens.xml` |
+| Drawable | `@drawable/tên` | `res/drawable/` |
+
+**Ưu điểm:**
+- **Đa ngôn ngữ (Localization):** Tạo `res/values-vi/strings.xml` cho tiếng Việt, `res/values-en/strings.xml` cho tiếng Anh → Android tự chọn theo cài đặt máy
+- **Đa theme:** Tạo `res/values-night/colors.xml` → tự chuyển Dark/Light mode
+- **Dễ bảo trì:** Sửa 1 nơi, áp dụng toàn app
+
+### OS hỗ trợ tự động theo:
+
+- **LANGUAGE/LOCATION:** `res/values-vi/`, `res/values-en/`, `res/values-fr/`
+- **THEME:** `res/values-night/` (Dark mode)
+- **SCREEN SIZE:** `res/layout-large/`, `res/layout-sw600dp/`
+
+→ App tự hiển thị đúng ngôn ngữ, theme, kích thước màn hình mà **không cần code thêm**.
+
+![res/values - strings.xml và colors.xml](11.png)
+
+---
+
+## 2.5. Layout Container (ViewGroup)
+
+| ViewGroup | Sắp xếp con | Dùng khi |
+|-----------|-------------|---------|
+| `LinearLayout` | Ngang hoặc dọc, kề nhau | Giao diện đơn giản, tuần tự |
+| `RelativeLayout` | Tương đối với nhau hoặc với parent | Cần căn chỉnh linh hoạt |
+| `ConstraintLayout` | Ràng buộc nhiều chiều | Giao diện phức tạp, hiệu quả cao |
+| `FrameLayout` | Chồng lên nhau | Overlay, fragment container |
+
+**`gravity` vs `layout_gravity`:**
+- `gravity`: căn nội dung **bên trong** View
+- `layout_gravity`: căn View **trong parent** của nó
+
+```xml
+<LinearLayout
+    android:orientation="vertical"
+    android:gravity="center_horizontal">
+
+    <Button
+        android:text="@string/btn_calculate"
+        android:layout_gravity="center"/>
+</LinearLayout>
 ```
 
-Button Text:
+![Layout XML trong Android Studio](12.png)
 
-```text
-Tính toán
+---
+
+## 2.6. Tương tác code với layout & Localization
+
+### Lấy View từ code (Java)
+
+```java
+// Trong onCreate()
+TextView tvResult = findViewById(R.id.tvResult);
+EditText etInput = findViewById(R.id.etInput);
+Button btnCalc = findViewById(R.id.btnCalc);
 ```
 
-📸 Chụp ảnh:
-- Properties từng thành phần
+### Hiển thị text theo Localization (tránh hardcode)
 
----
+```java
+// ❌ Sai - hardcode
+tvResult.setText("Kết quả: " + result);
 
-## Bước 3: Viết Block xử lý
+// ✅ Đúng - dùng string resource
+tvResult.setText(getString(R.string.result_prefix) + result);
 
-Trong Blocks:
-
-- Lấy dữ liệu TextBox
-- Chuyển sang number
-- Tính toán
-- Hiển thị kết quả
-
-Ví dụ:
-
-```text
-set Label1.Text to join
+// Hoặc dùng string với placeholder
+tvResult.setText(getString(R.string.result_format, result));
+// strings.xml: <string name="result_format">Kết quả: %s</string>
 ```
 
-📸 Chụp ảnh:
-- Block xử lý phép tính
-- Kết quả chạy thử
+→ Khi người dùng đổi ngôn ngữ máy, text tự động đổi theo.
 
 ---
 
-# 6. Thiết kế Screen 3 — WebView
+## 2.7. Xử lý sự kiện (Event)
 
-## Mục tiêu
+### Layout cần làm gì?
 
-Hiển thị website hỗ trợ giao diện điện thoại.
+Thêm thuộc tính `android:onClick` trong XML:
 
----
-
-## Bước 1: Kéo WebViewer
-
-Chọn:
-
-```text
-User Interface → WebViewer
+```xml
+<Button
+    android:id="@+id/btnCalc"
+    android:text="@string/btn_calculate"
+    android:onClick="onCalculateClick"/>
 ```
 
-📸 Chụp ảnh:
-- WebViewer trong Viewer
+### Cách 1: Khai báo trong XML + method trong Activity
 
----
-
-## Bước 2: Đặt URL
-
-Trong Properties:
-
-```text
-HomeUrl
+```java
+// Activity.java
+public void onCalculateClick(View view) {
+    // xử lý khi click
+    String input = etInput.getText().toString();
+    double result = Double.parseDouble(input) * 2;
+    tvResult.setText(getString(R.string.result_format, result));
+}
 ```
 
-Ví dụ:
+### Cách 2: Dùng `setOnClickListener` trong code (phổ biến hơn)
 
-```text
-https://k58kmt.tdh.io.vn
+```java
+btnCalc.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        // xử lý khi click
+        String input = etInput.getText().toString();
+        double result = Double.parseDouble(input) * 2;
+        tvResult.setText(getString(R.string.result_format, result));
+    }
+});
+
+// Hoặc viết gọn bằng Lambda (Java 8+)
+btnCalc.setOnClickListener(v -> {
+    String input = etInput.getText().toString();
+    tvResult.setText(getString(R.string.result_format, Double.parseDouble(input) * 2));
+});
 ```
 
-📸 Chụp ảnh:
-- Thuộc tính HomeUrl
-- Kết quả hiển thị website
+![Event handling - setOnClickListener trong Android Studio](13.png)
 
 ---
 
-# 7. Giải thích về Block
+## 2.8. Thư mục Assets
 
-## Bản chất của block
+### Đặc điểm
 
-Block là phương pháp lập trình trực quan bằng kéo thả thay vì viết code thủ công.
+- Nằm tại `app/src/main/assets/`
+- Copy file/folder vào đây bằng Windows Explorer hoặc IDE
+- Khi build → **mọi file đều đóng gói vào APK**, app mang theo
 
-Người dùng chỉ cần:
-- Kéo block
-- Ghép block
-- Tạo logic xử lý
+### Cú pháp truy cập
 
----
+```java
+// Đọc file text từ Assets
+AssetManager assetManager = getAssets();
+InputStream is = assetManager.open("data/foods.json");
 
-## Ưu điểm
-
-- Dễ học
-- Dễ làm quen
-- Hạn chế lỗi cú pháp
-- Tạo ứng dụng nhanh
-
----
-
-## Nhược điểm
-
-- Khó xây dựng hệ thống lớn
-- Khó tối ưu
-- Ít linh hoạt hơn viết code
-
----
-
-## Backpack
-
-Backpack dùng để:
-- Copy block
-- Lưu block
-- Paste block sang nơi khác
-
-📸 Chụp ảnh:
-- Backpack
-- Copy block
-
----
-
-# 8. Chạy thử ứng dụng
-
-Chọn:
-
-```text
-Connect → AI Companion
+// Đọc thành String
+BufferedReader reader = new BufferedReader(new InputStreamReader(is));
+StringBuilder sb = new StringBuilder();
+String line;
+while ((line = reader.readLine()) != null) {
+    sb.append(line);
+}
+String jsonContent = sb.toString();
 ```
 
-Dùng điện thoại quét QR để chạy app.
+### Lợi ích
 
-📸 Chụp ảnh:
-- QR Code
-- App chạy trên điện thoại
+- **Offline hoàn toàn:** App hoạt động không cần mạng
+- **Tốc độ:** Đọc dữ liệu nhanh, không delay mạng
+- **Bảo mật:** Dữ liệu không lưu ở server ngoài
+
+### Ứng dụng thực tế
+
+App hướng dẫn nấu ăn, từ điển offline, app học tiếng Anh, bản đồ offline,...
+
+![Thư mục Assets trong Android Studio](14.png)
 
 ---
 
-# PHẦN 2 — ANDROID STUDIO
+# PHẦN 3: APP1 – DỮ LIỆU CHUẨN BỊ TRƯỚC TRONG ASSETS
 
-# 1. Cài đặt Android Studio
+## 3.1. Đặt vấn đề
 
-## Bước 1: Tải Android Studio
+**Bài toán:** Xây dựng app **"Tra cứu món ăn Việt Nam"** – hiển thị danh sách món ăn kèm nguyên liệu và cách nấu, không cần internet.
 
-Tải tại:
+## 3.2. Đặc thù dữ liệu
 
-```text
-https://developer.android.com/studio
+- Dữ liệu: file `foods.json` trong Assets
+- Cấu trúc:
+
+```json
+[
+  {
+    "id": 1,
+    "name": "Phở bò",
+    "ingredients": ["xương bò", "bánh phở", "hành tây", "gừng", "gia vị"],
+    "steps": ["Hầm xương 3 tiếng", "Chần bánh phở", "Xếp thịt, chan nước dùng"],
+    "image": "pho_bo.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Bún bò Huế",
+    "ingredients": ["bún", "thịt bò", "chả cua", "sả", "mắm ruốc"],
+    "steps": ["Nấu nước dùng", "Chần bún", "Chan và trang trí"],
+    "image": "bun_bo_hue.jpg"
+  }
+]
 ```
 
-📸 Chụp ảnh:
-- Trang tải Android Studio
+## 3.3. Thuật toán xử lý
 
----
+1. Đọc `foods.json` từ Assets → String
+2. Parse JSON bằng `JSONArray` / `Gson`
+3. Đổ dữ liệu vào `List<Food>`
+4. Hiển thị bằng `RecyclerView`
 
-## Bước 2: Cài đặt
+## 3.4. Đối tượng hiển thị
 
-Cài:
-- Android SDK
-- Emulator
-- SDK Platform
+- `RecyclerView` + `RecyclerView.Adapter`: hiển thị danh sách
+- Khi click item → mở `DetailActivity` truyền dữ liệu qua `Intent`
 
-📸 Chụp ảnh:
-- Quá trình cài đặt
+```java
+// Đọc JSON từ Assets
+private String loadJSONFromAssets(String fileName) throws IOException {
+    AssetManager am = getAssets();
+    InputStream is = am.open(fileName);
+    int size = is.available();
+    byte[] buffer = new byte[size];
+    is.read(buffer);
+    is.close();
+    return new String(buffer, StandardCharsets.UTF_8);
+}
 
----
-
-# 2. Tạo Project Android Studio
-
-## Bước 1: New Project
-
-Chọn:
-
-```text
-Empty Views Activity
+// Parse và hiển thị
+String json = loadJSONFromAssets("foods.json");
+Gson gson = new Gson();
+List<Food> foodList = gson.fromJson(json,
+        new TypeToken<List<Food>>(){}.getType());
+adapter = new FoodAdapter(foodList);
+recyclerView.setAdapter(adapter);
 ```
 
-📸 Chụp ảnh:
-- Giao diện tạo project
+![App1 - Danh sách món ăn từ Assets](15.png)
+
+![App1 - Chi tiết món ăn](16.png)
 
 ---
 
-## Bước 2: Đặt tên project
+# PHẦN 4: APP2 – ANDROID STUDIO (3 ACTIVITY)
 
-Ví dụ:
+## 4.1. Activity 1: About
 
-```text
-MobileAppAndroid
+**Giao diện:** Tương tự Screen 1 MIT App Inventor – ảnh, tên, MSSV, 2 Button điều hướng.
+
+```java
+// Điều hướng sang Activity2
+btnGoMath.setOnClickListener(v -> {
+    Intent intent = new Intent(this, MathActivity.class);
+    startActivity(intent);
+});
+
+// Điều hướng sang Activity3
+btnGoWeb.setOnClickListener(v -> {
+    Intent intent = new Intent(this, WebViewActivity.class);
+    startActivity(intent);
+});
 ```
 
-Language:
-```text
-Java
+![Activity 1 - About](17.png)
+
+---
+
+## 4.2. Activity 2: Giải toán + Gọi API
+
+**Bài toán:** Giải phương trình bậc 2: ax² + bx + c = 0
+
+### Giao diện
+
+- 3 EditText nhập a, b, c
+- 1 Button "Giải"
+- 1 TextView hiển thị kết quả
+- 1 TextView hiển thị phản hồi từ server
+
+### Code giải toán
+
+```java
+double a = Double.parseDouble(etA.getText().toString());
+double b = Double.parseDouble(etB.getText().toString());
+double c = Double.parseDouble(etC.getText().toString());
+
+double delta = b * b - 4 * a * c;
+String ketluan, nghiem1 = "", nghiem2 = "";
+
+if (delta < 0) {
+    ketluan = "Vô nghiệm";
+} else if (delta == 0) {
+    ketluan = "Nghiệm kép";
+    nghiem1 = String.valueOf(-b / (2 * a));
+} else {
+    ketluan = "Hai nghiệm phân biệt";
+    nghiem1 = String.valueOf((-b + Math.sqrt(delta)) / (2 * a));
+    nghiem2 = String.valueOf((-b - Math.sqrt(delta)) / (2 * a));
+}
+
+tvResult.setText(getString(R.string.result_ketluan, ketluan));
 ```
 
-📸 Chụp ảnh:
-- Thông tin project
+### Gọi API sau khi giải
 
----
+```java
+private void sendResultToAPI(double a, double b, double c,
+                              String ketluan, double nghiem) {
+    // Khai báo INTERNET permission trong Manifest trước
+    new Thread(() -> {
+        try {
+            URL url = new URL("https://k58kmt.tdh.io.vn/api");
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setRequestMethod("POST");
+            conn.setRequestProperty("Content-Type", "application/json");
+            conn.setDoOutput(true);
 
-# 3. AndroidManifest.xml
+            // Tạo JSON body
+            JSONObject input = new JSONObject();
+            input.put("a", a);
+            input.put("b", b);
+            input.put("c", c);
+            input.put("name", "Phuong trinh bac 2");
 
-## Chức năng
+            JSONObject output = new JSONObject();
+            output.put("ketluan", ketluan);
+            output.put("nghiem", nghiem);
 
-File này dùng để:
-- Khai báo Activity
-- Khai báo quyền
-- Cấu hình ứng dụng
+            JSONObject body = new JSONObject();
+            body.put("app_by", "MSSV_CUA_BAN");  // thay bằng MSSV thực
+            body.put("input", input);
+            body.put("output", output);
 
----
+            // Gửi request
+            OutputStream os = conn.getOutputStream();
+            os.write(body.toString().getBytes(StandardCharsets.UTF_8));
+            os.close();
 
-## Ví dụ cấp quyền Internet
+            // Đọc response
+            InputStream is = conn.getInputStream();
+            BufferedReader reader = new BufferedReader(new InputStreamReader(is));
+            StringBuilder sb = new StringBuilder();
+            String line;
+            while ((line = reader.readLine()) != null) sb.append(line);
+
+            JSONObject response = new JSONObject(sb.toString());
+            int ok = response.getInt("ok");
+            int stt = response.getInt("stt");
+
+            // Cập nhật UI trên main thread
+            runOnUiThread(() ->
+                tvApiResponse.setText("API OK=" + ok + " | STT=" + stt));
+
+        } catch (Exception e) {
+            runOnUiThread(() ->
+                tvApiResponse.setText("Lỗi gọi API: " + e.getMessage()));
+        }
+    }).start();
+}
+```
+
+**Khai báo quyền INTERNET trong `AndroidManifest.xml`:**
 
 ```xml
 <uses-permission android:name="android.permission.INTERNET"/>
 ```
 
-📸 Chụp ảnh:
-- File AndroidManifest.xml
+![Activity 2 - Giải phương trình bậc 2](18.png)
+
+![Activity 2 - Gọi API và nhận kết quả](19.png)
 
 ---
 
-# 4. Giải thích vòng đời Android
+## 4.3. Activity 3: WebView
 
-## Các hàm chính
-
-- onCreate()
-- onStart()
-- onResume()
-- onPause()
-- onStop()
-- onDestroy()
-
----
-
-## Ý nghĩa onCreate()
-
-Đây là hàm được gọi khi Activity được tạo lần đầu.
-
-Dùng để:
-- Khởi tạo giao diện
-- Ánh xạ View
-- Khởi tạo dữ liệu
-
-📸 Chụp ảnh:
-- Hàm onCreate()
-
----
-
-# 5. Thiết kế giao diện XML
-
-## File layout
-
-Đường dẫn:
-
-```text
-res/layout/activity_main.xml
-```
-
----
-
-## Ví dụ TextView
+### Khai báo trong Manifest
 
 ```xml
-<TextView
-    android:text="Xin chào"/>
+<uses-permission android:name="android.permission.INTERNET"/>
 ```
 
----
-
-## Dùng string resource
-
-Không nên hardcode trực tiếp.
-
-Ví dụ:
+### Layout (`activity_webview.xml`)
 
 ```xml
-android:text="@string/app_name"
+<WebView
+    android:id="@+id/webView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"/>
 ```
 
-📸 Chụp ảnh:
-- File strings.xml
-- Tham chiếu @string
-
----
-
-## Ưu điểm
-
-- Hỗ trợ đa ngôn ngữ
-- Hỗ trợ theme
-- Dễ bảo trì
-
----
-
-# 6. Event trong Android
-
-## Cách 1 — setOnClickListener
+### Code Java
 
 ```java
-button.setOnClickListener(new View.OnClickListener() {
+public class WebViewActivity extends AppCompatActivity {
+    private WebView webView;
+
     @Override
-    public void onClick(View view) {
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_webview);
 
+        webView = findViewById(R.id.webView);
+
+        // Bật JavaScript (bắt buộc cho hầu hết trang web)
+        webView.getSettings().setJavaScriptEnabled(true);
+        webView.getSettings().setDomStorageEnabled(true);
+
+        // Mở trong WebView, không mở trình duyệt ngoài
+        webView.setWebViewClient(new WebViewClient());
+
+        // Load URL với mã SV
+        String masv = "MSSV_CUA_BAN"; // thay bằng MSSV thực
+        webView.loadUrl("https://k58kmt.tdh.io.vn?masv=" + masv);
     }
-});
-```
 
-📸 Chụp ảnh:
-- Code xử lý sự kiện
-
----
-
-## Cách 2 — android:onClick
-
-Trong XML:
-
-```xml
-android:onClick="xuLyNut"
-```
-
-Trong Java:
-
-```java
-public void xuLyNut(View view){
-
+    // Xử lý nút Back để duyệt lịch sử web
+    @Override
+    public void onBackPressed() {
+        if (webView.canGoBack()) {
+            webView.goBack();
+        } else {
+            super.onBackPressed();
+        }
+    }
 }
 ```
 
-📸 Chụp ảnh:
-- XML event
-- Hàm Java
-
+![Activity 3 - WebView hiển thị trang web](20.png)
+![Activity 3 - Code gọi API bằng HttpURLConnection](21.png)
+![Activity 3 - WebView hiển thị trang web trên máy thật](22.png)
+![Activity 3 - WebView hiển thị trang we khác](23.png)
 ---
 
-# 7. Assets trong Android
-
-## Thư mục Assets
-
-Dùng để:
-- Chứa file dữ liệu
-- File txt
-- JSON
-- HTML
-- Hình ảnh
-
----
-
-## Truy cập Assets
-
-Ví dụ:
-
-```java
-InputStream inputStream = getAssets().open("data.txt");
-```
-
-📸 Chụp ảnh:
-- Thư mục assets
-- File dữ liệu
-
----
-
-# 8. APP1 — Dữ liệu Offline bằng Assets
-
-## Ý tưởng
-
-Tạo ứng dụng đọc dữ liệu có sẵn từ file trong Assets.
-
-Ví dụ:
-- Danh sách sản phẩm
-- Danh sách món ăn
-- Hướng dẫn học tập
-
----
-
-## Các bước
-
-### Bước 1:
-Tạo file dữ liệu.
-
-Ví dụ:
-
-```text
-products.txt
-```
-
-📸 Chụp ảnh:
-- File dữ liệu
-
----
-
-### Bước 2:
-Copy vào thư mục assets.
-
-📸 Chụp ảnh:
-- File trong assets
-
----
-
-### Bước 3:
-Đọc file bằng Java.
-
-📸 Chụp ảnh:
-- Code đọc file
-
----
-
-### Bước 4:
-Hiển thị dữ liệu.
-
-Có thể dùng:
-- TextView
-- RecyclerView
-- ListView
-
-📸 Chụp ảnh:
-- Kết quả hiển thị
-
----
-
-# 9. APP2 — 3 Activity
-
-## Activity1
-
-- Giới thiệu bản thân
-- Chuyển Activity
-
-📸 Chụp ảnh:
-- Activity1
-
----
-
-## Activity2
-
-- Giải toán
-- Gọi API gửi dữ liệu
-
-Ví dụ JSON:
-
-```json
-{
-  "app_by":"K225480106059",
-  "input":{
-    "a":1,
-    "b":2
-  },
-  "output":{
-    "tong":3
-  }
-}
-```
-
-📸 Chụp ảnh:
-- Code API
-- Kết quả trả về
-
----
-
-## Activity3
-
-Dùng WebView truy cập:
-
-```text
-https://k58kmt.tdh.io.vn?masv=K225480106059
-```
-
-📸 Chụp ảnh:
-- WebView
-- Website hiển thị
-
----
-
-
-# 11. Kết luận
-
-Sau khi thực hiện bài tập:
-- Hiểu cách xây dựng ứng dụng bằng MIT App Inventor
-- Hiểu cấu trúc Android Studio
-- Biết xử lý giao diện và sự kiện
-- Biết sử dụng Assets
-- Biết dùng WebView và API
-
-Bài tập giúp làm quen với quy trình phát triển ứng dụng di động từ cơ bản đến thực tế.
-
-    

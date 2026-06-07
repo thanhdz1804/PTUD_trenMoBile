@@ -33,7 +33,7 @@ Palette chứa các thành phần chia thành nhóm:
 2. Chọn thành phần trên Viewer → bảng **Properties** bên phải hiển thị các thuộc tính
 3. Thay đổi: `Text`, `FontSize`, `BackgroundColor`, `Width`, `Height`, v.v.
 
-![Giao diện MIT App Inventor - màn hình Designer](1.png)
+![Giao diện MIT App Inventor - màn hình Designer](img/1.png)
 
 ---
 
@@ -67,7 +67,7 @@ Palette chứa các thành phần chia thành nhóm:
 - Chuyển sang Screen khác → kéo ra từ Backpack để dùng lại
 - Tương đương Ctrl+C / Ctrl+V nhưng hoạt động xuyên Screen
 
-![Màn hình Blocks - lập trình logic bằng kéo-thả](2.png)
+![Màn hình Blocks - lập trình logic bằng kéo-thả](img/2.png)
 
 ---
 
@@ -90,9 +90,9 @@ Khi Button2.Click
   → gọi open another screen: "Screen3"
 ```
 
-![Screen 1 - About bản thân - Designer](3.png)
+![Screen 1 - About bản thân - Designer](img/3.png)
 
-![Screen 1 - About bản thân - Blocks](4.png)
+![Screen 1 - About bản thân - Blocks](img/4.png)
 
 ---
 
@@ -112,9 +112,9 @@ Khi btnTinh.Click
   → set lblKetQua.Text = TextBox1.Text × TextBox2.Text
 ```
 
-![Screen 2 - Giải bài toán - Designer](5.png)
+![Screen 2 - Giải bài toán - Designer](img/5.png)
 
-![Screen 2 - Giải bài toán - Blocks](6.png)
+![Screen 2 - Giải bài toán - Blocks](img/6.png)
 
 ---
 
@@ -128,7 +128,7 @@ Khi btnTinh.Click
 
 **Blocks:** Không cần block phức tạp – WebViewer tự tải trang khi mở Screen.
 
-![Screen 3 - WebView hiển thị trang web](7.png)
+![Screen 3 - WebView hiển thị trang web](img/7.png)
 
 ---
 
@@ -159,7 +159,7 @@ Khi btnTinh.Click
 
 Từ Android 6.0+, quyền nhạy cảm (Dangerous Permission) phải **xin thêm lúc chạy** (Runtime Permission).
 
-![AndroidManifest.xml - khai báo quyền](8.png)
+![AndroidManifest.xml - khai báo quyền](img/8.png)
 
 ---
 
@@ -188,7 +188,7 @@ onCreate() → onStart() → onResume() → [App đang chạy]
 
 Vì `onCreate()` là điểm vào bắt buộc của mọi Activity – Android luôn gọi nó đầu tiên. Đây là nơi duy nhất để gọi `setContentView()` để gắn layout XML vào Activity.
 
-![Vòng đời Activity Android](9.png)
+![Vòng đời Activity Android](img/9.png)
 
 ---
 
@@ -224,7 +224,7 @@ public void onRequestPermissionsResult(int requestCode,
 
 **Ý nghĩa:** Bảo vệ quyền riêng tư người dùng – app chỉ được dùng tài nguyên khi người dùng đồng ý.
 
-![Xin quyền Runtime trên Android](10.png)
+![Xin quyền Runtime trên Android](img/10.png)
 
 ---
 
@@ -264,7 +264,7 @@ public void onRequestPermissionsResult(int requestCode,
 
 → App tự hiển thị đúng ngôn ngữ, theme, kích thước màn hình mà **không cần code thêm**.
 
-![res/values - strings.xml và colors.xml](11.png)
+![res/values - strings.xml và colors.xml](img/11.png)
 
 ---
 
@@ -292,7 +292,7 @@ public void onRequestPermissionsResult(int requestCode,
 </LinearLayout>
 ```
 
-![Layout XML trong Android Studio](12.png)
+![Layout XML trong Android Studio](img/12.png)
 
 ---
 
@@ -370,7 +370,7 @@ btnCalc.setOnClickListener(v -> {
 });
 ```
 
-![Event handling - setOnClickListener trong Android Studio](13.png)
+![Event handling - setOnClickListener trong Android Studio](img/13.png)
 
 ---
 
@@ -409,7 +409,7 @@ String jsonContent = sb.toString();
 
 App hướng dẫn nấu ăn, từ điển offline, app học tiếng Anh, bản đồ offline,...
 
-![Thư mục Assets trong Android Studio](14.png)
+![Thư mục Assets trong Android Studio](img/14.png)
 
 ---
 
@@ -476,9 +476,9 @@ adapter = new FoodAdapter(foodList);
 recyclerView.setAdapter(adapter);
 ```
 
-![App1 - Danh sách món ăn từ Assets](15.png)
+![App1 - Danh sách món ăn từ Assets](img/15.png)
 
-![App1 - Chi tiết món ăn](16.png)
+![App1 - Chi tiết món ăn](img/16.png)
 
 ---
 
@@ -502,7 +502,7 @@ btnGoWeb.setOnClickListener(v -> {
 });
 ```
 
-![Activity 1 - About](17.png)
+![Activity 1 - About](img/17.png)
 
 ---
 
@@ -605,9 +605,9 @@ private void sendResultToAPI(double a, double b, double c,
 <uses-permission android:name="android.permission.INTERNET"/>
 ```
 
-![Activity 2 - Giải phương trình bậc 2](18.png)
+![Activity 2 - Giải phương trình bậc 2](img/18.png)
 
-![Activity 2 - Gọi API và nhận kết quả](19.png)
+![Activity 2 - Gọi API và nhận kết quả](img/19.png)
 
 ---
 
@@ -665,9 +665,9 @@ public class WebViewActivity extends AppCompatActivity {
 }
 ```
 
-![Activity 3 - WebView hiển thị trang web](20.png)
-![Activity 3 - Code gọi API bằng HttpURLConnection](21.png)
-![Activity 3 - WebView hiển thị trang web trên máy thật](22.png)
-![Activity 3 - WebView hiển thị trang we khác](23.png)
+![Activity 3 - WebView hiển thị trang web](img/20.png)
+![Activity 3 - Code gọi API bằng HttpURLConnection](img/21.png)
+![Activity 3 - WebView hiển thị trang web trên máy thật](img/22.png)
+![Activity 3 - WebView hiển thị trang we khác](img/23.png)
 ---
 

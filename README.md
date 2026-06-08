@@ -131,7 +131,11 @@ Khi btnTinh.Click
 ![Screen 3 - WebView hiển thị trang web](img/7.png)
 
 ---
-
+### Chạy trên máy thật
+![- qr chạy app](img/26.png)
+![Screen 1 - WebView hiển thị trang web](img/23.png)
+![Screen 2 - WebView hiển thị trang web](img/24.png)
+![Screen 3 - WebView hiển thị trang web](img/25.png)
 # PHẦN 2: ANDROID STUDIO
 
 ## 2.1. Android Manifest (`AndroidManifest.xml`)
@@ -667,7 +671,7 @@ public class WebViewActivity extends AppCompatActivity {
 
 ![Activity 3 - WebView hiển thị trang web](img/20.png)
 ![Activity 3 - Code gọi API bằng HttpURLConnection](img/21.png)
-![Activity 3 - WebView hiển thị trang web trên máy thật](img/22.png)
-![Activity 3 - WebView hiển thị trang we khác](img/23.png)
----
 
+---
+### demo máy thật
+![Activity 3 - WebView hiển thị trang web trên máy thật](img/22.png)
